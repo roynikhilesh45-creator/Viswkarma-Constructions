@@ -67,6 +67,11 @@ const galleryImages = [
     src: 'images/KRR/WhatsApp Image 2026-06-20 at 9.24.03 PM.jpeg',
     caption: 'FRP (Fiberglass) Chemical-Resistant Protective Wall Lining'
   },
+  {
+    type: 'KRR',
+    src: 'images/KRR/WhatsApp Image 2026-06-20 at 9.35.02 PM.jpeg',
+    caption: 'Industrial Plant Structural Column Framing and Pedestal Casting'
+  },
   
   // MDR Class-1 Projects
   {
@@ -98,8 +103,73 @@ const galleryImages = [
   // KOUSALYA NIKETHAN Projects
   {
     type: 'KOUSALYA',
-    src: 'images/KOUSALYA/WhatsApp Image 2026-06-20 at 9.35.02 PM.jpeg',
-    caption: 'Singapore City Multi-Family Apartments Structural Column Framing'
+    src: 'images/KOUSALYA/WhatsApp Image 2026-06-21 at 7.50.59 AM.jpeg',
+    caption: 'Site Alignment and Leveling Survey Using a Total Station at the Apartment Foundation Site'
+  },
+  {
+    type: 'KOUSALYA',
+    src: 'images/KOUSALYA/WhatsApp Image 2026-06-21 at 7.51.00 AM (1).jpeg',
+    caption: 'Foundation Footings and Column Reinforcement Layout for Multi-Story Building Project'
+  },
+  {
+    type: 'KOUSALYA',
+    src: 'images/KOUSALYA/WhatsApp Image 2026-06-21 at 7.51.00 AM (2).jpeg',
+    caption: 'Diwakar Tamiri Inspecting Foundation Grid Beam Reinforcement and Formwork'
+  },
+  {
+    type: 'KOUSALYA',
+    src: 'images/KOUSALYA/WhatsApp Image 2026-06-21 at 7.51.00 AM.jpeg',
+    caption: 'Sieve Analysis and Quality Testing of 20mm Coarse Aggregates at the Construction Site'
+  },
+  {
+    type: 'KOUSALYA',
+    src: 'images/KOUSALYA/WhatsApp Image 2026-06-21 at 7.51.01 AM (1).jpeg',
+    caption: 'Casting and Curing of Parallel Column Foundations and Excavated Grid Layout'
+  },
+  {
+    type: 'KOUSALYA',
+    src: 'images/KOUSALYA/WhatsApp Image 2026-06-21 at 7.51.01 AM (2).jpeg',
+    caption: 'Concrete Slump Test Measurement to Verify Workability of Fresh Mix'
+  },
+  {
+    type: 'KOUSALYA',
+    src: 'images/KOUSALYA/WhatsApp Image 2026-06-21 at 7.51.01 AM.jpeg',
+    caption: 'Quality Audit and Unit Weight Verification of Steel Reinforcing Bars'
+  },
+  {
+    type: 'KOUSALYA',
+    src: 'images/KOUSALYA/WhatsApp Image 2026-06-21 at 7.51.02 AM (1).jpeg',
+    caption: 'Heavy Earthworks and Bulk Excavation for Building Site Foundation and Trenching'
+  },
+  {
+    type: 'KOUSALYA',
+    src: 'images/KOUSALYA/WhatsApp Image 2026-06-21 at 7.51.02 AM (2).jpeg',
+    caption: 'Marked Out Foundation Trench Layout Ready for Soil Compaction and PCC Casting'
+  },
+  {
+    type: 'KOUSALYA',
+    src: 'images/KOUSALYA/WhatsApp Image 2026-06-21 at 7.51.02 AM (3).jpeg',
+    caption: 'Casting Concrete Cube Specimens for Compressive Strength Laboratory Testing'
+  },
+  {
+    type: 'KOUSALYA',
+    src: 'images/KOUSALYA/WhatsApp Image 2026-06-21 at 7.51.02 AM.jpeg',
+    caption: 'High-Angle View of Building Foundation Reinforcement Grid and Site Progress'
+  },
+  {
+    type: 'KOUSALYA',
+    src: 'images/KOUSALYA/WhatsApp Image 2026-06-21 at 7.51.03 AM (1).jpeg',
+    caption: 'Diwakar Tamiri Conducting Weight Verification and Logging for Rebar Reinforcement'
+  },
+  {
+    type: 'KOUSALYA',
+    src: 'images/KOUSALYA/WhatsApp Image 2026-06-21 at 7.51.03 AM (2).jpeg',
+    caption: 'Cured M25 Concrete Cube Samples (Dated 15.06.25) for Compressive Strength Testing'
+  },
+  {
+    type: 'KOUSALYA',
+    src: 'images/KOUSALYA/WhatsApp Image 2026-06-21 at 7.51.03 AM.jpeg',
+    caption: 'Completed Concrete Pedestal Footings with Exposed Column Rebars in Foundation Trench'
   }
 ];
 
@@ -168,6 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 4. Typing Text Effect in Hero
   const strings = [
+    "Founder, Viswkarma Constructions",
     "Senior Civil Engineer",
     "Site In-Charge",
     "Industrial Construction Specialist",
@@ -260,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const timer = setInterval(() => {
               count += Math.ceil(target / (duration / stepTime));
               if (count >= target) {
-                el.textContent = target + (target === 11 || target === 100 || target === 500 ? '+' : '');
+                el.textContent = target + (target === 14 || target === 100 || target === 500 ? '+' : '');
                 clearInterval(timer);
               } else {
                 el.textContent = count;
@@ -340,6 +411,9 @@ document.addEventListener('DOMContentLoaded', () => {
         openLightbox();
       });
       container.appendChild(item);
+      if (typeof revealObserver !== 'undefined') {
+        revealObserver.observe(item);
+      }
     });
   }
 
@@ -536,4 +610,33 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  // 10. Open Viswkarma Constructions visiting card in premium lightbox
+  const btnZoomCard = document.getElementById('btn-zoom-card');
+  const btnZoomCardBack = document.getElementById('btn-zoom-card-back');
+  const visitingCardImg = document.getElementById('viswkarma-card-preview');
+  if (btnZoomCard || visitingCardImg) {
+    const handleCardClick = (e) => {
+      e.preventDefault();
+      activeGalleryArr = [{
+        src: 'images/visiting_card.jpeg',
+        caption: 'Viswkarma Constructions - Business Card (Front Side)'
+      }];
+      activeGalleryIndex = 0;
+      openLightbox();
+    };
+    if (btnZoomCard) btnZoomCard.addEventListener('click', handleCardClick);
+    if (visitingCardImg) visitingCardImg.addEventListener('click', handleCardClick);
+  }
+  if (btnZoomCardBack) {
+    btnZoomCardBack.addEventListener('click', (e) => {
+      e.preventDefault();
+      activeGalleryArr = [{
+        src: 'images/backside.jpeg',
+        caption: 'Viswkarma Constructions - Business Card (Back Side)'
+      }];
+      activeGalleryIndex = 0;
+      openLightbox();
+    });
+  }
 });
